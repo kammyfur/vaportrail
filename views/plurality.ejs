@@ -1,0 +1,92 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022- Equestria.dev Developers
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+<%- include("./partials/header.ejs", {title: "Plurality"}) %>
+<%
+
+// noinspection JSUnresolvedVariable
+let cloudburst = pluralCache["ynmuc"];
+
+// noinspection JSUnresolvedVariable
+let raindrops  = pluralCache["gdapd"];
+
+let frontersCloudburst = cloudburst['fronters']['members'].map((i) => { return i['id']; });
+let frontersRaindrops = raindrops['fronters']['members'].map((i) => { return i['id']; });
+
+%>
+
+<div id="navbar-skipper">
+    <div class="container">
+        <br>
+        <h2 style="text-align: center;">Hello, we are plural!</h2>
+        <p style="text-align: center;"><%= (cloudburst["members"].length + raindrops["members"].length) %> ponies, 2 brains!</p>
+
+        <div id="cnp-intro-outer">
+            <div id="cnp-intro" style="display:grid;grid-template-columns: 131px 1fr;grid-gap:10px;background:#353535;border-radius:10px;padding:10px;">
+                <div id="cnp-image-outer" style="display:flex;align-items:center;">
+                    <img id="cnp-image" alt="" src="https://static.equestria.horse/ponies/logo/newlogo.png" style="height:131px;">
+                </div>
+                <div id="cnp-content-outer" style="display:flex;align-items:center;">
+                    <div id="cnp-content">
+                        <h4 id="cnp-title">There is even better than this page</h4>
+                        <span id="cnp-tagline">On <b>Cold Haze</b>, you can get additional information about all of us, such as what each one of us likes doing, pronouns, species, and more.</span><br>
+                        <a id="cnp-link" href="https://ponies.equestria.horse" target="_blank" class="btn btn-outline-light" style="display:inline-block;margin-top:10px;">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div id="systems">
+            <div id="system-cloudburst">
+                <img id="system-cloudburst-icon" class="system-icon" alt="" src="<%= cloudburst["general"]["avatar_url"] %>">
+                <h3 id="system-cloudburst-name" class="system-name">Cloudburst System</h3>
+                <p id="system-cloudburst-description" class="system-description">Plural system of <%= cloudburst["members"].length %> ponies!</p>
+
+                <% for (let member of cloudburst["members"]) { %>
+                <a href="https://ponies.equestria.horse/<%= member['name'] %>" target="_blank" class="plural-member" id="plural-member-<%= member['id'] %>">
+                    <img src="<%= member['avatar_url'] ?? cloudburst['general']['avatar_url'] %>" alt="" class="plural-member-picture" id="plural-member-<%= member['id'] %>-picture">
+                    <span class="plural-member-name" id="plural-member-<%= member['id'] %>-name"><%= member['display_name'] ?? member['name'] %><% if (frontersCloudburst.includes(member['id'])) { %>&nbsp;<span class="badge rounded-pill bg-primary">Front</span><% } %></span>
+                    <span class="plural-member-prefix" id="plural-member-<%= member['id'] %>-prefix"><%= member['proxy_tags'][0]['prefix'] ?? "{...}" %></span>
+                </a>
+                <% } %>
+            </div>
+            <div id="system-raindrops">
+                <img id="system-raindrops-icon" class="system-icon" alt="" src="<%= raindrops["general"]["avatar_url"] %>">
+                <h3 id="system-raindrops-name" class="system-name">Raindrops System</h3>
+                <p id="system-raindrops-description" class="system-description">Plural system of <%= raindrops["members"].length %> ponies!</p>
+
+                <% for (let member of raindrops["members"]) { %>
+                    <a href="https://ponies.equestria.horse/<%= member['name'] %>" target="_blank" class="plural-member" id="plural-member-<%= member['id'] %>">
+                        <img src="<%= member['avatar_url'] ?? raindrops['general']['avatar_url'] %>" alt="" class="plural-member-picture" id="plural-member-<%= member['id'] %>-picture">
+                        <span class="plural-member-name" id="plural-member-<%= member['id'] %>-name"><%= member['display_name'] ?? member['name'] %><% if (frontersRaindrops.includes(member['id'])) { %>&nbsp;<span class="badge rounded-pill bg-primary">Front</span><% } %></span>
+                        <span class="plural-member-prefix" id="plural-member-<%= member['id'] %>-prefix"><%= member['proxy_tags'][0]['prefix'] ?? "{...}" %></span>
+                    </a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>

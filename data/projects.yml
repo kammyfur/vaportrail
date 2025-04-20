@@ -1,0 +1,81 @@
+# ID generator:
+#     var genId = () => { return parseInt(Math.random().toFixed(15).split(".")[1]).toString(16).substr(0, 10); }
+
+# A few IDs we can start with:
+# - 1fd2c3e6e4
+
+# id: The ID for the project container
+# name: The name of the project
+# language: The language used for the project (see /public/assets/languages for supported options)
+# description: A short description of the project and what it does
+# url: A *public* URL to the project. If not public, use 'null'.
+
+- id: 2a1fab78e9
+  name: Izzy Moonbot
+  language: csharp
+  description: |
+    Administration Discord bot for Manechat.
+  url: null
+
+- id: e889cad466
+  name: PonyCon Countdown
+  language: javascript
+  description: |
+    A website counting down to various pony conventions and events.
+  url: https://ponycon.info/
+
+- id: 2669c39785
+  name: Equestria Lossless Audio Codec
+  language: javascript
+  description: |
+    A small audio container format with lossless capabilities.
+  url: https://git.equestria.dev/equestria.dev/elac
+
+- id: 6bbdc4d58a
+  name: The Pony Hideout
+  language: null
+  description: |
+    Undoubtedly the best Discord server.
+  url: null
+
+- id: 82b41cb35a
+  name: Project Ember
+  language: php
+  description: |
+    A way to use our old domains (conep.one and minteck.org) as portals to this website.
+  url: https://gitlab.minteck.org/minteck/ember
+
+- id: 13b49b245c
+  name: DJ Pon-3
+  language: typescript
+  description: |
+    An open-source cross-platform Discord music bot.
+  url: https://git.equestria.dev/equestria.dev/dj-pon-3
+
+- id: eaab41d186
+  name: ponies.equestria.horse
+  language: php
+  description: |
+    A fast, powerful and modular CMS for the ponies.equestria.horse website
+  url: https://git.equestria.dev/equestria.dev/ponies.equestria.horse
+
+#- id: 11984e34ea
+#  name: strawberry-boot
+#  language: javascript
+#  description: |
+#    An open-source reference bootloader for Strawberry devices.
+#  url: https://git.equestria.dev/equestria.dev/strawberry-boot
+
+- id: 2a71c49048
+  name: Bits (client)
+  language: javascript
+  description: |
+    An open-source made-for-plural money management app.
+  url: https://git.equestria.dev/equestria.dev/bits-client
+
+- id: 204a14c8c8
+  name: Bits (server)
+  language: php
+  description: |
+    A reference server for the Bits client application.
+  url: https://git.equestria.dev/equestria.dev/bits-server

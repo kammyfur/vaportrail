@@ -1,0 +1,63 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022- Equestria.dev Developers
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+<%- include("./partials/header.ejs", {title: "Error " + code}) %>
+
+<div id="navbar-skipper">
+    <br>
+
+    <div class="container">
+        <h1 style="text-align: center;"><%= code %></h1>
+        <h2 style="text-align: center;"><%= message %></h2>
+        <p style="text-align: center;">An error occurred on our side, and we can't show this page for now. Please try again later! If you report a bug, a developer might ask you to give the weird code stuff below.</p>
+        <a class="btn btn-primary" href="/" style="margin-left:auto;margin-right:auto;display:block;width:max-content;">Go home</a>
+        <br>
+        <details>
+            <summary style="opacity: .5;">Show weird code stuff</summary>
+            <div style="background-color:rgba(0, 0, 0, .25);border-radius:10px;margin-top:10px;padding:10px;">
+                <ul>
+                    <li>URL: <%= req.url %></li>
+                    <%
+
+                    let ua = new UAParser(req.header('user-agent'));
+
+                    %>
+                    <li>Browser: <%= ua.getBrowser().name + " " + ua.getBrowser().version %></li>
+                    <li>Engine: <%= ua.getEngine().name + " " + ua.getEngine().version %></li>
+                    <li>Core Version: <%= process.version %></li>
+                    <li>Memory (RSS): <%= (process.memoryUsage().rss / 1024).toFixed(2) %>K</li>
+                    <li>Memory (Heap Total): <%= (process.memoryUsage().heapTotal / 1024).toFixed(2) %>K</li>
+                    <li>Memory (Heap Used): <%= (process.memoryUsage().heapUsed / 1024).toFixed(2) %>K</li>
+                    <li>Memory (External): <%= (process.memoryUsage().heapUsed / 1024).toFixed(2) %>K</li>
+                    <li>Memory (Array Buffers): <%= (process.memoryUsage().arrayBuffers / 1024).toFixed(2) %>K</li>
+                </ul>
+                <% if (typeof err !== "undefined") { %>
+                <pre><%= err.stack %></pre>
+                <% } %>
+            </div>
+        </details>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>

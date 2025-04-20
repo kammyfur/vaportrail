@@ -1,0 +1,174 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022- Equestria.dev Developers
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
+
+/** {*/
+/*    font-family: "Comic Sans MS", sans-serif !important;*/
+/*}*/
+
+html, body {
+    background-color: #222;
+    color: white;
+}
+
+#hero {
+    background-image: url("/assets/banner.svg");
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    inset: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.navbar {
+    background-color: transparent !important;
+    transition: background-color 200ms;
+}
+
+#hero-inner {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 5px #00000085;
+    font-size: 3vw;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 7%);
+}
+
+#hero-skipper {
+    height: max-content;
+    min-height: 100vh;
+    background: #222;
+    width: 100%;
+    z-index: 9;
+    position: absolute;
+    margin-top: 100vh;
+    box-shadow: 0px 10px 20px 20px rgba(0, 0, 0, .5);
+}
+
+#hero-title-2 {
+    font-size: 1.5vw;
+    font-weight: normal;
+}
+
+.navbar.scrolled {
+    background-color: #353535 !important;
+}
+
+#intro-bar {
+    height: 10px;
+    background-image: linear-gradient(145deg, rgba(93,33,33,1) 0%, rgba(90,93,33,1) 20%, rgba(33,93,41,1) 40%, rgba(33,91,93,1) 60%, rgba(35,33,93,1) 80%, rgba(93,33,86,1) 100%);
+}
+
+#home-people-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.home-people-image {
+    width: max-content;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
+.home-people-text {
+    text-align: center;
+    font-size: 36px;
+}
+
+#navbar-skipper {
+    margin-top: 56px;
+}
+
+.server, .plural-member, .project {
+    border-style: solid;
+    border-color: #303030;
+    border-radius: 10px;
+    background-color: #333333;
+    padding: 5px;
+}
+
+.server .name, .project .project-name {
+    border-style: none none solid none;
+    border-color: #303030;
+    padding: 5px;
+}
+
+.server p, .project .project-description {
+    margin-left: 5px;
+}
+
+.navbar-nohero {
+    background-color: #353535 !important;
+}
+
+.server-data, .server-data-2 {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+.server-item-icon {
+    filter: invert(1);
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+
+.server-item-text {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+@media (max-width: 993px) {
+    .server-data {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .server-data {
+        grid-template-columns: 1fr;
+    }
+}
+
+.list-group-item {
+    background: #444 !important;
+    color: white !important;
+}
+
+.list-group-item:hover {
+    opacity: .75;
+}
+
+.list-group-item:active, .list-group-item:focus {
+    opacity: .75;
+}

@@ -1,0 +1,81 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022- Equestria.dev Developers
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+<%- include("./partials/header.ejs", {title: "About Us"}) %>
+
+<div id="navbar-skipper">
+    <br>
+    <h2 style="text-align: center;">About Us</h2>
+    <p style="text-align: center;margin-bottom:20px;">We're two fluffy birb horses!</p>
+    <div class="container">
+        <div class="section" id="why-shared-website">
+            <!-- The pony who wrote this code is cute. - Scoots -->
+            <!-- The pony who wrote the above comment is cute. - Twi -->
+            <a class="section-title" href="#why-shared-website">Why do we have a shared website?</a>
+            <div class="section-content">
+                We have a shared website for several reasons, but one of them is simply because we think it's cool honestly.<br>
+                We also already share basically everything, so why not share a website as well?
+            </div>
+        </div>
+        <div class="section" id="languages-we-know">
+            <a class="section-title" href="#languages-we-know">What languages do we know?</a>
+            <div class="section-content">
+                We both know...<br>
+                <div class="language-icon-wrapper">
+                    <img title="HTML" class="language-icon" src="/assets/languages/html.svg">
+                    <img title="JavaScript" class="language-icon" src="/assets/languages/javascript.svg">
+                    <img title="TypeScript" class="language-icon" src="/assets/languages/typescript.svg">
+                    <img title="PHP" class="language-icon" src="/assets/languages/php.svg">
+                    <img title="Python" class="language-icon" src="/assets/languages/python.svg">
+                </div><br>
+                The ponies in the Cloudburst System also know...<br>
+                <div class="language-icon-wrapper">
+                    <img title="C#" class="language-icon" src="/assets/languages/csharp.svg">
+                </div><br>
+                The ponies in the Raindrops System also know...<br>
+                <div class="language-icon-wrapper">
+                    <img title="Kotlin" class="language-icon" src="/assets/languages/kotlin.svg">
+                </div>
+            </div>
+        </div>
+        <div class="section" id="legal-notices">
+            <a class="section-title" href="#legal-notices">Your usual annoying legal stuff</a>
+            <div class="section-content">
+                Yes yes we know this stuff is annoying, but alas we do need to mention it.
+                <div class="list-group" id="legal-notices-block">
+                    <a class="list-group-item list-group-item-action" href="https://minteck.org/legal/#/privacy">Data Privacy</a>
+                    <a class="list-group-item list-group-item-action" href="https://minteck.org/legal/#/terms">Terms and Conditions</a>
+                    <!--<a class="list-group-item list-group-item-action" href="https://legal.equestria.horse/sla">Quality of Service Policy</a>-->
+                    <a class="list-group-item list-group-item-action" href="https://minteck.org/legal/#/notices">General Legal Notices</a>
+                    <!--<a class="list-group-item list-group-item-action" href="https://legal.equestria.horse/privacy">Data Privacy</a>
+                    <a class="list-group-item list-group-item-action" href="https://legal.equestria.horse/terms">Terms and Conditions</a>
+                    <a class="list-group-item list-group-item-action" href="https://legal.equestria.horse/sla">Quality of Service Policy</a>
+                    <a class="list-group-item list-group-item-action" href="https://legal.equestria.horse/notices">General Legal Notices</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>

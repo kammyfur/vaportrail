@@ -1,0 +1,89 @@
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022- Equestria.dev Developers
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+<%- include("./partials/header.ejs", {title: "Servers" }) %>
+
+<div id="navbar-skipper">
+    <br>
+    <h2 style="text-align: center;">Servers</h2>
+    <p style="text-align: center;margin-bottom:20px;"><%= Object.keys(serverCache).length %> servers we manage</p>
+    <div class="server-container container">
+        <% for (let server of Object.keys(serverCache)) { %>
+            <div class="server" id="server-<%= server %>">
+                <h3 class="name"><%
+                        let commonName;
+                        let data = serverCache[server];
+
+                        switch (server) {
+                            case "bridlewood":
+                                commonName = "Bridlewood"
+                                break;
+
+                            case "zephyrheights":
+                                commonName = "Zephyr Heights"
+                                break;
+
+                            case "maretimebay":
+                                commonName = "Maretime Bay"
+                                break;
+
+                            case "canterlot":
+                                commonName = "Canterlot"
+                                break;
+
+                            case "ponyville":
+                                commonName = "Ponyville"
+                                break;
+
+                            default:
+                                commonName = server;
+                                break;
+                        }
+                    %><%= commonName %> <br><span style="font-size:18px;margin-left:0;">(<code><%= server %>.equestria.dev</code>)</span></h3>
+                <% if (data) { %>
+                    <div class="server-data">
+                        <p><img src="/assets/icons/uptime.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text">Up <%= data['uptime'].toLowerCase() %></span></p>
+                        <p><img src="/assets/icons/system.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text"><%= data['os']['name'] %> <%= data['os']['version'] %></span></p>
+                        <p><img src="/assets/icons/memory.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text"><%= data['physicalmemory']['used'] %>/<%= data['physicalmemory']['total'] %> of RAM</span></p>
+                        <p><img src="/assets/icons/cpu.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text"><%= data['cpu']['model'] %> @<%= data['cpu']['speed'] %> (x<%= data['cpu']['cores'] %>)</span></p>
+                        <p><img src="/assets/icons/usage.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text"><%= data['cpu']['load'] %><% if (data['cpu']['temperature']) { %>, <%= data['cpu']['temperature'] %><% } %></span></p>
+                        <p><img src="/assets/icons/swap.svg" class="server-item-icon" alt=""><br>
+                            <span class="server-item-text"><%= data['swapmemory']['used'] %>/<%= data['swapmemory']['total'] %> of swap</span></p>
+                    </div>
+                <% } else { %>
+                    <p class="text-danger text-center">Server is offline</p>
+                <% } %>
+                <div class="category-container"></div>
+            </div>
+            <br>
+        <% } %>
+    </div>
+    <br>
+</div>
+<%- include("./partials/footer.ejs") %>
